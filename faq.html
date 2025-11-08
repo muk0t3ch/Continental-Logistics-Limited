@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Continental Logistics Limited</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a3a6c; /* Blue from logo */
+            --secondary-color: #e63946; /* Red from logo */
+            --accent-color: #f4a261;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 90px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        /* Updated Navbar with white background */
+        .navbar {
+            background-color: white;
+            padding: 1.2rem 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .navbar.scrolled {
+            padding: 0.8rem 0;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .logo-main {
+            font-weight: 850;
+            font-size: 1.8rem;
+            line-height: 1;
+            text-align: center;
+        }
+        
+        .logo-subtitle {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-top: 3px;
+        }
+        
+        /* Updated navigation links - blue, larger, and nicer */
+        .nav-link {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 0 0.8rem;
+            transition: all 0.3s;
+            position: relative;
+            padding: 8px 12px !important;
+            border-radius: 4px;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(26, 58, 108, 0.2);
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+            background-color: white;
+        }
+        
+        .nav-link.active {
+            color: white !important;
+            background-color: var(--primary-color);
+        }
+        
+        .nav-link.active:after {
+            width: 100%;
+            background-color: var(--secondary-color);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(26, 58, 108, 0.85), rgba(26, 58, 108, 0.9)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 140px 0 100px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .page-header .lead {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+        
+        .section-padding {
+            padding: 100px 0;
+        }
+        
+        .bg-light-gray {
+            background-color: #f8f9fa;
+        }
+        
+        /* FAQ Accordion */
+        .faq-accordion .accordion-item {
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        
+        .faq-accordion .accordion-button {
+            background-color: white;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 20px 25px;
+            border: none;
+            box-shadow: none;
+        }
+        
+        .faq-accordion .accordion-button:not(.collapsed) {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: none;
+        }
+        
+        .faq-accordion .accordion-button:focus {
+            box-shadow: none;
+            border: none;
+        }
+        
+        .faq-accordion .accordion-button::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%231a3a6c'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            transform: scale(1.2);
+        }
+        
+        .faq-accordion .accordion-button:not(.collapsed)::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+        
+        .faq-accordion .accordion-body {
+            padding: 25px;
+            background-color: white;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .faq-category {
+            margin-bottom: 50px;
+        }
+        
+        .faq-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+            display: inline-block;
+        }
+        
+        /* Contact CTA */
+        .contact-cta {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2a4d8a 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(26, 58, 108, 0.2);
+            margin-top: 50px;
+        }
+        
+        .contact-cta h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .contact-cta p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .btn-light {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        
+        .btn-light:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Enhanced Footer with Blue and Red Colors */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2a4d8a 100%);
+            color: white;
+            padding: 70px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color), var(--secondary-color));
+        }
+        
+        .footer:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: rgba(230, 57, 70, 0.1);
+            border-radius: 50%;
+            transform: translate(30%, 30%);
+        }
+        
+        .footer-logo {
+            max-height: 70px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            margin-bottom: 20px;
+        }
+        
+        .footer-brand {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-brand .logo-subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 5px;
+        }
+        
+        .footer-description {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+        
+        .footer-heading {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-heading:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .social-link:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+            color: white;
+        }
+        
+        /* Services List */
+        .footer-services {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-services li {
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .footer-services li:hover {
+            transform: translateX(5px);
+        }
+        
+        .footer-services a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-services a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-services i {
+            color: var(--secondary-color);
+            font-size: 0.8rem;
+            margin-right: 10px;
+            width: 15px;
+        }
+        
+        /* Contact Information */
+        .contact-info {
+            margin-top: 10px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--secondary-color);
+            font-size: 1rem;
+        }
+        
+        .contact-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .contact-text strong {
+            color: white;
+            font-weight: 600;
+        }
+        
+        .contact-text a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-text a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Copyright Section */
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 25px;
+            margin-top: 50px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-end;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Logo styling */
+        .logo-img {
+            max-height: 70px;
+            width: auto;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            
+            .page-header {
+                padding: 120px 0 80px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .page-header .lead {
+                font-size: 1.2rem;
+            }
+            
+            .logo-img {
+                max-height: 50px;
+            }
+            
+            .nav-link {
+                font-size: 1rem;
+                margin: 0.2rem 0;
+                text-align: center;
+            }
+            
+            .navbar {
+                padding: 1rem 0;
+            }
+            
+            .section-padding {
+                padding: 80px 0;
+            }
+            
+            .footer {
+                padding: 50px 0 20px;
+            }
+            
+            .footer-links {
+                justify-content: center;
+                margin-top: 15px;
+            }
+            
+            .contact-cta {
+                padding: 40px 25px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .page-header .lead {
+                font-size: 1.1rem;
+            }
+            
+            .footer {
+                padding: 40px 0 15px;
+            }
+            
+            .footer-logo {
+                max-height: 50px;
+            }
+            
+            .social-links {
+                gap: 10px;
+            }
+            
+            .social-link {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .faq-accordion .accordion-button {
+                padding: 15px 20px;
+                font-size: 1rem;
+            }
+            
+            .faq-accordion .accordion-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/Continental Logistics LOGO.png" alt="Continental Logistics Limited Company Logo" class="logo-img">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tracking.html">Tracking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="clients.html">Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="careers.html">Careers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="faq.html">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p class="lead">Find answers to common questions about our logistics services</p>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="section-padding bg-light-gray">
+        <div class="container">
+            <h2 class="section-title">Common Questions</h2>
+            <p class="text-center mb-5">We've compiled answers to the questions we get asked most frequently</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <!-- General Questions -->
+                    <div class="faq-category">
+                        <h3>General Questions</h3>
+                        <div class="accordion faq-accordion" id="generalAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="generalHeading1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#generalCollapse1" aria-expanded="true" aria-controls="generalCollapse1">
+                                        What areas do you serve?
+                                    </button>
+                                </h2>
+                                <div id="generalCollapse1" class="accordion-collapse collapse show" aria-labelledby="generalHeading1" data-bs-parent="#generalAccordion">
+                                    <div class="accordion-body">
+                                        We provide comprehensive logistics services across Southern, Central and East Africa. Our primary operations cover Zambia, Tanzania, DRC, Malawi, Zimbabwe, and Mozambique, with extended services to neighboring countries through our strategic partnerships.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="generalHeading2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#generalCollapse2" aria-expanded="false" aria-controls="generalCollapse2">
+                                        What is your company's policy on corruption?
+                                    </button>
+                                </h2>
+                                <div id="generalCollapse2" class="accordion-collapse collapse" aria-labelledby="generalHeading2" data-bs-parent="#generalAccordion">
+                                    <div class="accordion-body">
+                                        Continental Logistics maintains a strict zero-tolerance policy for corruption in all our business practices. We are committed to ethical operations and full compliance with all anti-corruption laws and regulations in the countries where we operate.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="generalHeading3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#generalCollapse3" aria-expanded="false" aria-controls="generalCollapse3">
+                                        What certifications does your company hold?
+                                    </button>
+                                </h2>
+                                <div id="generalCollapse3" class="accordion-collapse collapse" aria-labelledby="generalHeading3" data-bs-parent="#generalAccordion">
+                                    <div class="accordion-body">
+                                        We hold internationally recognized certifications including ISO 9001 for quality management, ISO 14001 for environmental management, and OHSAS 18001 for occupational health and safety. We are also certified by local transportation authorities in all countries where we operate.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Services Questions -->
+                    <div class="faq-category">
+                        <h3>Services Questions</h3>
+                        <div class="accordion faq-accordion" id="servicesAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="servicesHeading1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#servicesCollapse1" aria-expanded="true" aria-controls="servicesCollapse1">
+                                        What types of goods do you transport?
+                                    </button>
+                                </h2>
+                                <div id="servicesCollapse1" class="accordion-collapse collapse show" aria-labelledby="servicesHeading1" data-bs-parent="#servicesAccordion">
+                                    <div class="accordion-body">
+                                        We transport a wide range of goods including general cargo, perishables, hazardous materials (with proper certification), oversized loads, and temperature-sensitive products. Our fleet includes specialized vehicles for different cargo types, and all shipments are fully insured.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="servicesHeading2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#servicesCollapse2" aria-expanded="false" aria-controls="servicesCollapse2">
+                                        Do you provide warehousing services?
+                                    </button>
+                                </h2>
+                                <div id="servicesCollapse2" class="accordion-collapse collapse" aria-labelledby="servicesHeading2" data-bs-parent="#servicesAccordion">
+                                    <div class="accordion-body">
+                                        Yes, we offer secure warehousing solutions with climate-controlled facilities, real-time inventory tracking, and flexible storage options. Our warehouses are strategically located near major transport routes for efficient distribution.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="servicesHeading3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#servicesCollapse3" aria-expanded="false" aria-controls="servicesCollapse3">
+                                        How do you handle customs clearance?
+                                    </button>
+                                </h2>
+                                <div id="servicesCollapse3" class="accordion-collapse collapse" aria-labelledby="servicesHeading3" data-bs-parent="#servicesAccordion">
+                                    <div class="accordion-body">
+                                        Our experienced customs brokerage team handles all documentation and regulatory compliance for cross-border shipments. We maintain strong relationships with customs authorities across the region to ensure smooth and timely clearance of your goods.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tracking & Support Questions -->
+                    <div class="faq-category">
+                        <h3>Tracking & Support</h3>
+                        <div class="accordion faq-accordion" id="trackingAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="trackingHeading1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#trackingCollapse1" aria-expanded="true" aria-controls="trackingCollapse1">
+                                        How can I track my shipment?
+                                    </button>
+                                </h2>
+                                <div id="trackingCollapse1" class="accordion-collapse collapse show" aria-labelledby="trackingHeading1" data-bs-parent="#trackingAccordion">
+                                    <div class="accordion-body">
+                                        All our trucks are equipped with TRAMIGO GPS tracking devices. You can track your shipment in real-time through our online portal or by contacting our customer service team. We provide 24/7 visibility of your cargo's location and status.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="trackingHeading2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#trackingCollapse2" aria-expanded="false" aria-controls="trackingCollapse2">
+                                        What is your customer support availability?
+                                    </button>
+                                </h2>
+                                <div id="trackingCollapse2" class="accordion-collapse collapse" aria-labelledby="trackingHeading2" data-bs-parent="#trackingAccordion">
+                                    <div class="accordion-body">
+                                        Our customer support team is available 24/7 to assist with any inquiries or issues. You can reach us by phone, email, or through our online contact form. We pride ourselves on responsive communication and quick resolution of any concerns.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="trackingHeading3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#trackingCollapse3" aria-expanded="false" aria-controls="trackingCollapse3">
+                                        How do you ensure shipment security?
+                                    </button>
+                                </h2>
+                                <div id="trackingCollapse3" class="accordion-collapse collapse" aria-labelledby="trackingHeading3" data-bs-parent="#trackingAccordion">
+                                    <div class="accordion-body">
+                                        We implement multiple security measures including 24/7 GPS tracking, secure parking facilities, trained security personnel for high-value shipments, and comprehensive insurance coverage. Our TRAMIGO system also provides geo-fencing and alert features for enhanced security.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pricing & Billing Questions -->
+                    <div class="faq-category">
+                        <h3>Pricing & Billing</h3>
+                        <div class="accordion faq-accordion" id="pricingAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="pricingHeading1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pricingCollapse1" aria-expanded="true" aria-controls="pricingCollapse1">
+                                        How are shipping costs calculated?
+                                    </button>
+                                </h2>
+                                <div id="pricingCollapse1" class="accordion-collapse collapse show" aria-labelledby="pricingHeading1" data-bs-parent="#pricingAccordion">
+                                    <div class="accordion-body">
+                                        Shipping costs are calculated based on multiple factors including distance, cargo weight and dimensions, route complexity, required delivery timeframe, and any special handling requirements. We provide transparent quotes with no hidden fees.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="pricingHeading2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pricingCollapse2" aria-expanded="false" aria-controls="pricingCollapse2">
+                                        Do you offer volume discounts?
+                                    </button>
+                                </h2>
+                                <div id="pricingCollapse2" class="accordion-collapse collapse" aria-labelledby="pricingHeading2" data-bs-parent="#pricingAccordion">
+                                    <div class="accordion-body">
+                                        Yes, we offer competitive volume discounts for regular clients and large shipments. Our account managers work with clients to develop customized pricing structures that reflect the volume and frequency of their logistics needs.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="pricingHeading3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pricingCollapse3" aria-expanded="false" aria-controls="pricingCollapse3">
+                                        What payment methods do you accept?
+                                    </button>
+                                </h2>
+                                <div id="pricingCollapse3" class="accordion-collapse collapse" aria-labelledby="pricingHeading3" data-bs-parent="#pricingAccordion">
+                                    <div class="accordion-body">
+                                        We accept various payment methods including bank transfers, credit cards, and corporate accounts with approved credit terms. Payment terms are typically net 30 days for established clients, with flexibility based on the nature and volume of business.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact CTA -->
+            <div class="contact-cta">
+                <h3>Still Have Questions?</h3>
+                <p>Our team is ready to provide personalized answers to your specific logistics inquiries</p>
+                <a href="contact.html" class="btn btn-light">Contact Us Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer with Blue and Red Colors -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- Company Info with Logo -->
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-brand">
+                        <img src="images/Continental Logistics LOGO.png" alt="Continental Logistics" class="footer-logo">
+                        <div class="logo-subtitle">Beyond Boundaries</div>
+                    </div>
+                    <p class="footer-description">Your Trusted Transport Partner delivering reliable logistics solutions across Southern, Central and East Africa.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Services Section -->
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-heading">Our Services</h5>
+                    <ul class="footer-services list-unstyled">
+                        <li>
+                            <a href="services.html#transport">
+                                <i class="fas fa-arrow-right"></i>Regional Transport
+                            </a>
+                        </li>
+                        <li>
+                            <a href="services.html#warehousing">
+                                <i class="fas fa-arrow-right"></i>Warehousing Solutions
+                            </a>
+                        </li>
+                        <li>
+                            <a href="services.html#supply-chain">
+                                <i class="fas fa-arrow-right"></i>Supply Chain Management
+                            </a>
+                        </li>
+                        <li>
+                            <a href="services.html#tracking">
+                                <i class="fas fa-arrow-right"></i>Real-time Tracking
+                            </a>
+                        </li>
+                        <li>
+                            <a href="services.html#customs">
+                                <i class="fas fa-arrow-right"></i>Customs Clearance
+                            </a>
+                        </li>
+                        <li>
+                            <a href="services.html#distribution">
+                                <i class="fas fa-arrow-right"></i>Distribution Services
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-lg-4 col-md-12">
+                    <h5 class="footer-heading">Contact Information</h5>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>Head Office</strong><br>
+                                5395 Kamfinsa Kitwe Ndola Rd<br>
+                                Kitwe, Zambia
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <a href="mailto:continentallogisticsafrica@gmail.com">continentallogisticsafrica@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <a href="tel:+2600977414661">+260 0977414661</a><br>
+                                <a href="tel:+260966802254">+260 966802254</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>Business Hours</strong><br>
+                                Mon - Fri: 8:00 AM - 6:00 PM<br>
+                                Sat: 9:00 AM - 1:00 PM
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright Section -->
+            <div class="copyright">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p>&copy; 2023 Continental Logistics Limited. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="footer-links">
+                            <a href="privacy.html">Privacy Policy</a>
+                            <a href="terms.html">Terms of Service</a>
+                            <a href="sitemap.html">Sitemap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Main JS -->
+    <script>
+        // Common functionality across all pages
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (navbar && window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else if (navbar) {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Back to top button functionality
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            if (backToTopButton) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTopButton.classList.add('active');
+                    } else {
+                        backToTopButton.classList.remove('active');
+                    }
+                });
+                
+                backToTopButton.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+
+            // Set active navigation link based on current page
+            setActiveNavLink();
+        });
+
+        function setActiveNavLink() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                // Remove active class from all links
+                link.classList.remove('active');
+                
+                // Get the href attribute and extract filename
+                const linkHref = link.getAttribute('href');
+                if (linkHref === currentPage) {
+                    link.classList.add('active');
+                }
+                
+                // Special case for index.html
+                if ((currentPage === '' || currentPage === 'index.html') && linkHref === 'index.html') {
+                    link.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

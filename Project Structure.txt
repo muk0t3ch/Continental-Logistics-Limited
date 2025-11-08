@@ -1,0 +1,18 @@
+continental-logistics/
+├── index.html (Home)
+├── about.html
+├── services.html
+├── tracking.html
+├── clients.html
+├── testimonials.html
+├── faq.html
+├── contact.html
+├── css/
+│   └── style.css
+├── js/
+│   ├── main.js
+│   ├── home.js
+│   ├── tracking.js
+│   └── contact.js
+└── assets/
+    └── (images, etc.)

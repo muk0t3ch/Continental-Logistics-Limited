@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Continental Logistics Limited</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a3a6c; /* Blue from logo */
+            --secondary-color: #e63946; /* Red from logo */
+            --accent-color: #f4a261;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 90px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        /* Updated Navbar with white background */
+        .navbar {
+            background-color: white;
+            padding: 1.2rem 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .navbar.scrolled {
+            padding: 0.8rem 0;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .logo-main {
+            font-weight: 850;
+            font-size: 1.8rem;
+            line-height: 1;
+            text-align: center;
+        }
+        
+        .logo-subtitle {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-top: 3px;
+        }
+        
+        /* Updated navigation links - blue, larger, and nicer */
+        .nav-link {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 0 0.8rem;
+            transition: all 0.3s;
+            position: relative;
+            padding: 8px 12px !important;
+            border-radius: 4px;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(26, 58, 108, 0.2);
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+            background-color: white;
+        }
+        
+        .nav-link.active {
+            color: white !important;
+            background-color: var(--primary-color);
+        }
+        
+        .nav-link.active:after {
+            width: 100%;
+            background-color: var(--secondary-color);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(26, 58, 108, 0.85), rgba(26, 58, 108, 0.9)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 140px 0 100px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .page-header .lead {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+        
+        .section-padding {
+            padding: 100px 0;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2a4d8a 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(26, 58, 108, 0.2);
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .contact-info h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-details p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-details i {
+            margin-right: 15px;
+            margin-top: 5px;
+            color: var(--accent-color);
+            min-width: 20px;
+        }
+        
+        .manager-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+        
+        .manager-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .manager-card h5 {
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+        
+        .manager-card .position {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .manager-card .phone {
+            color: white;
+            font-weight: 600;
+        }
+        
+        .contact-form {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            height: 100%;
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .form-control {
+            border: 1px solid #e0e0e0;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(26, 58, 108, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), #2a4d8a);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border-radius: 6px;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #152a4d, var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(26, 58, 108, 0.3);
+        }
+        
+        /* Enhanced Footer with Blue and Red Colors */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2a4d8a 100%);
+            color: white;
+            padding: 70px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color), var(--secondary-color));
+        }
+        
+        .footer:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: rgba(230, 57, 70, 0.1);
+            border-radius: 50%;
+            transform: translate(30%, 30%);
+        }
+        
+        .footer-logo {
+            max-height: 70px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            margin-bottom: 20px;
+        }
+        
+        .footer-brand {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-brand .logo-subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 5px;
+        }
+        
+        .footer-description {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+        
+        .footer-heading {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-heading:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .social-link:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+            color: white;
+        }
+        
+        /* Services List */
+        .footer-services {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-services li {
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .footer-services li:hover {
+            transform: translateX(5px);
+        }
+        
+        .footer-services a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-services a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-services i {
+            color: var(--secondary-color);
+            font-size: 0.8rem;
+            margin-right: 10px;
+            width: 15px;
+        }
+        
+        /* Contact Information */
+        .contact-info-footer {
+            margin-top: 10px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--secondary-color);
+            font-size: 1rem;
+        }
+        
+        .contact-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .contact-text strong {
+            color: white;
+            font-weight: 600;
+        }
+        
+        .contact-text a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-text a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Copyright Section */
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 25px;
+            margin-top: 50px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-end;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        
+        /* Logo styling */
+        .logo-img {
+            max-height: 70px;
+            width: auto;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            
+            .page-header {
+                padding: 120px 0 80px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .page-header .lead {
+                font-size: 1.2rem;
+            }
+            
+            .logo-img {
+                max-height: 50px;
+            }
+            
+            .nav-link {
+                font-size: 1rem;
+                margin: 0.2rem 0;
+                text-align: center;
+            }
+            
+            .navbar {
+                padding: 1rem 0;
+            }
+            
+            .contact-info,
+            .contact-form {
+                padding: 30px 25px;
+            }
+            
+            .manager-card {
+                padding: 20px;
+            }
+            
+            .section-padding {
+                padding: 80px 0;
+            }
+            
+            .footer {
+                padding: 50px 0 20px;
+            }
+            
+            .footer-links {
+                justify-content: center;
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .page-header .lead {
+                font-size: 1.1rem;
+            }
+            
+            .footer {
+                padding: 40px 0 15px;
+            }
+            
+            .footer-logo {
+                max-height: 50px;
+            }
+            
+            .social-links {
+                gap: 10px;
+            }
+            
+            .social-link {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/Continental Logistics LOGO.png" alt="Continental Logistics Limited Company Logo" class="logo-img">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tracking.html">Tracking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="clients.html">Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="careers.html">Careers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq.html">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p class="lead">Get in touch with our team for reliable logistics solutions</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="text-center mb-5">We're here to help with all your logistics needs. Reach out to us today!</p>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        
+                        <div class="contact-details">
+                            <p>
+                                <i class="fas fa-envelope"></i>
+                                <span>continentallogisticsafrica@gmail.com</span>
+                            </p>
+                            <p>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>5395 Kamfinsa Kitwe Ndola Rd, Kitwe, Zambia</span>
+                            </p>
+                        </div>
+                        
+                        <h4>Key Personnel</h4>
+                        
+                        <div class="manager-card">
+                            <h5>Golden Museteka</h5>
+                            <div class="position">OPERATIONS MANAGER</div>
+                            <div class="phone">
+                                <i class="fas fa-phone me-2"></i> +260 0977414661
+                            </div>
+                        </div>
+                        
+                        <div class="manager-card">
+                            <h5>Davies Shikaputo</h5>
+                            <div class="position">HSE & LOGISTICS MANAGER</div>
+                            <div class="phone">
+                                <i class="fas fa-phone me-2"></i> +260966802254
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h5>Follow Us</h5>
+                            <div class="social-links mt-3">
+                                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-8">
+                    <div class="contact-form">
+                        <h3 class="section-title" style="text-align: left;">Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Your Name</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="6" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Map Section -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h3 class="section-title">Our Location</h3>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.5971690160477!2d28.21331015872085!3d-12.823899399999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDQ5JzI2LjAiUyAyOMKwMTInNTAuOCJF!5e0!3m2!1sen!2szm!4v1620000000000!5m2!1sen!2szm" 
+                            width="100%" 
+                            height="400" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy"
+                            title="Continental Logistics Location">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer with Blue and Red Colors -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- Company Info with Logo -->
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-brand">
+                        <img src="images/Continental Logistics LOGO.png" alt="Continental Logistics" class="footer-logo">
+                        <div class="logo-subtitle">Beyond Boundaries</div>
+                    </div>
+                    <p class="footer-description">Your Trusted Transport Partner delivering reliable logistics solutions across Southern, Central and East Africa.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Services Section -->
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-heading">Our Services</h5>
+                    <ul class="footer-services list-unstyled">
+                        <li>
+                            <a href="services.html#transport">
+                                <i class="fas fa-arrow-right"></i>Regional Transport
+                            </a>
+                        </li>
+                        <li>
+                            <a href="services.html#warehousing">
+                                <i class="fas fa-arrow-right"></i>Warehousing Solutions
+                            </a>
+                        </li>
+                        <li>
+                            <a href="services.html#supply-chain">
+                                <i class="fas fa-arrow-right"></i>Supply Chain Management
+                            </a>
+                        </li>
+                        <li>
+                            <a href="services.html#tracking">
+                                <i class="fas fa-arrow-right"></i>Real-time Tracking
+                            </a>
+                        </li>
+                        <li>
+                            <a href="services.html#customs">
+                                <i class="fas fa-arrow-right"></i>Customs Clearance
+                            </a>
+                        </li>
+                        <li>
+                            <a href="services.html#distribution">
+                                <i class="fas fa-arrow-right"></i>Distribution Services
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-lg-4 col-md-12">
+                    <h5 class="footer-heading">Contact Information</h5>
+                    <div class="contact-info-footer">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>Head Office</strong><br>
+                                5395 Kamfinsa Kitwe Ndola Rd<br>
+                                Kitwe, Zambia
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <a href="mailto:continentallogisticsafrica@gmail.com">continentallogisticsafrica@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <a href="tel:+2600977414661">+260 0977414661</a><br>
+                                <a href="tel:+260966802254">+260 966802254</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>Business Hours</strong><br>
+                                Mon - Fri: 8:00 AM - 6:00 PM<br>
+                                Sat: 9:00 AM - 1:00 PM
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright Section -->
+            <div class="copyright">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p>&copy; 2023 Continental Logistics Limited. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="footer-links">
+                            <a href="privacy.html">Privacy Policy</a>
+                            <a href="terms.html">Terms of Service</a>
+                            <a href="sitemap.html">Sitemap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Main JS -->
+    <script>
+        // Common functionality across all pages
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (navbar && window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else if (navbar) {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Back to top button functionality
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            if (backToTopButton) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTopButton.classList.add('active');
+                    } else {
+                        backToTopButton.classList.remove('active');
+                    }
+                });
+                
+                backToTopButton.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+
+            // Set active navigation link based on current page
+            setActiveNavLink();
+
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! We will get back to you soon.');
+                    this.reset();
+                });
+            }
+        });
+
+        function setActiveNavLink() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                // Remove active class from all links
+                link.classList.remove('active');
+                
+                // Get the href attribute and extract filename
+                const linkHref = link.getAttribute('href');
+                if (linkHref === currentPage) {
+                    link.classList.add('active');
+                }
+                
+                // Special case for index.html
+                if ((currentPage === '' || currentPage === 'index.html') && linkHref === 'index.html') {
+                    link.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
