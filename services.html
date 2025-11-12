@@ -330,6 +330,70 @@
             to { opacity: 1; }
         }
 
+        /* Services Materials Section */
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .material-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .material-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-top-color: var(--secondary-color);
+        }
+
+        .material-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Truck Gallery Section */
+        .truck-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .gallery-truck-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .gallery-truck-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .gallery-truck-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .gallery-truck-info {
+            padding: 20px;
+        }
+
+        .gallery-truck-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
         /* Enhanced Footer with Blue and Red Colors - REDESIGNED */
         .footer {
             background: linear-gradient(135deg, var(--primary-color) 0%, #2a4d8a 100%);
@@ -681,6 +745,14 @@
             .truck-fleet-container {
                 grid-template-columns: 1fr;
             }
+
+            .materials-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .truck-gallery {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 576px) {
@@ -713,6 +785,10 @@
 
             .footer-heading {
                 margin-top: 15px;
+            }
+
+            .materials-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -779,6 +855,130 @@
                     <h3>Regional Transport</h3>
                     <p>Efficient transport services across Southern, Central and East Africa with reliable delivery timelines.</p>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Truck Gallery Section -->
+<section class="section-padding bg-light">
+    <div class="container">
+        <h2 class="section-title">Our Fleet in Action</h2>
+        <p class="text-center mb-5">See our trucks delivering cargo across the region</p>
+
+        <div class="truck-gallery">
+            <div class="gallery-truck-card">
+                <img src="images/Continental Truck 1.jpg" alt="Continental Truck" class="gallery-truck-img">
+                <div class="gallery-truck-info">
+                    <h4>Truck Carrying Cargo</h4>
+                    <p>Our reliable truck transporting industrial materials across regional borders with safety and efficiency.</p>
+                </div>
+            </div>
+
+            <div class="gallery-truck-card">
+                <img src="images/Continental Truck 5.jpg" alt="Continental Truck" class="gallery-truck-img">
+                <div class="gallery-truck-info">
+                    <h4>Truck Carrying Cargo</h4>
+                    <p>Heavy-duty truck equipped for long-distance haulage of industrial materials and minerals.</p>
+                </div>
+            </div>
+
+            <div class="gallery-truck-card">
+                <img src="images/Continental Truck 8.jpg" alt="Continental Truck" class="gallery-truck-img">
+                <div class="gallery-truck-info">
+                    <h4>Truck Carrying Cargo</h4>
+                    <p>Our modern fleet ensures timely delivery of materials while maintaining the highest safety standards.</p>
+                </div>
+            </div>
+
+            <div class="gallery-truck-card">
+                <img src="images/Continental Truck 3.jpg" alt="Continental Truck" class="gallery-truck-img">
+                <div class="gallery-truck-info">
+                    <h4>Truck Carrying Cargo</h4>
+                    <p>Specialized transport solutions for industrial cargo with proper handling and secure transit.</p>
+                </div>
+            </div>
+
+            <div class="gallery-truck-card">
+                <img src="images/Continental Truck 1.jpg" alt="Continental Truck" class="gallery-truck-img">
+                <div class="gallery-truck-info">
+                    <h4>Truck Carrying Cargo</h4>
+                    <p>Continental Logistics truck on the road, delivering quality transport services across the region.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Materials We Transport Section -->
+<section class="section-padding">
+    <div class="container">
+        <h2 class="section-title">Cargo We Transport</h2>
+        <p class="text-center mb-5">We specialize in the safe and efficient transportation of various industrial cargo</p>
+
+        <div class="materials-grid">
+            <div class="material-card">
+                <div class="material-icon">
+                    <i class="fas fa-industry"></i>
+                </div>
+                <h4>Copper</h4>
+                <p>Specialized transport solutions for copper and copper products</p>
+            </div>
+
+            <div class="material-card">
+                <div class="material-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <h4>Quick Lime</h4>
+                <p>Secure transport for quick lime with proper handling procedures</p>
+            </div>
+
+            <div class="material-card">
+                <div class="material-icon">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <h4>Sulphur</h4>
+                <p>Safe transportation solutions for sulphur with compliance to safety standards</p>
+            </div>
+
+            <div class="material-card">
+                <div class="material-icon">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <h4>Cobalt</h4>
+                <p>Specialized handling and transport for cobalt materials</p>
+            </div>
+
+            <div class="material-card">
+                <div class="material-icon">
+                    <i class="fas fa-mountain"></i>
+                </div>
+                <h4>Coal</h4>
+                <p>Efficient transport solutions for coal with optimized loading techniques</p>
+            </div>
+
+            <div class="material-card">
+                <div class="material-icon">
+                    <i class="fas fa-hard-hat"></i>
+                </div>
+                <h4>Project Materials</h4>
+                <p>Transport of various construction and project materials</p>
+            </div>
+
+            <div class="material-card">
+                <div class="material-icon">
+                    <i class="fas fa-boxes"></i>
+                </div>
+                <h4>Lime</h4>
+                <p>Transport solutions for lime products with proper containment</p>
+            </div>
+
+            <div class="material-card">
+                <div class="material-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h4>Other Materials</h4>
+                <p>Custom transport solutions for various industrial materials</p>
             </div>
         </div>
     </div>
